@@ -1,0 +1,71 @@
+[Tasks]
+Path = "Automation > Tasks > User Defined > ProVal"
+
+[Overview]
+Enabled = false / true
+Name = ""
+Description = ""
+
+[Overview.Notifications]
+Send_a_notification_when_the_task_fails = false / true
+Send_a_notification_when_the_task_fails = "Critical / Elevated / Normal /Low"
+Send_a_notification_when_the_task_completes_successfully = false / true
+Send_a_notification_when_the_task_completes_successfully = "Critical / Elevated / Normal /Low"
+
+[Overview.Execution_Settings]
+Continue_on_errors = false / true
+
+[Overview.Current_Scope]
+Select_a_scope = ""
+
+[Overview.Enable_Scheduling]
+Enable_Scheduling = false / true
+
+[Overview.Enable_Scheduling.Edit_Schedule]
+Repeats = "Daily / Every weekday (Monday to Friday) / Every Monday, Wednesday and Friday / Every Tuesday and Thursday / Weekly / Monthly"
+
+[Overview.Enable_Scheduling.Edit_Schedule.Repeats.Daily]
+Repeat_every = "X days"
+Timezone = ""
+Starts_on = ""
+Summary = ""
+
+[Overview.Enable_Scheduling.Edit_Schedule.Repeats.Every_weekday_(Monday_to_Friday)]
+Timezone = ""
+Starts_on = ""
+Summary = ""
+
+[Overview.Enable_Scheduling.Edit_Schedule.Repeats.Every_Monday,_Wednesday_and_Friday]
+Timezone = ""
+Starts_on = ""
+Summary = ""
+
+[Overview.Enable_Scheduling.Edit_Schedule.Repeats.Every_Tuesday_and_Thursday]
+Timezone = ""
+Starts_on = ""
+Summary = ""
+
+[Overview.Enable_Scheduling.Edit_Schedule.Repeats.Weekly]
+Repeat_every = "X weeks"
+Repeat_on = "Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday"
+Timezone = ""
+Starts_on = ""
+Summary = ""
+
+[Overview.Enable_Scheduling.Edit_Schedule.Repeats.Monthly]
+Repeat_every = "X months"
+Repeat_by = "day of the month / day of the week / last day of the month / second to last day of the month"
+Timezone = ""
+Starts_on = ""
+Summary = ""
+
+[Overview.Enable_Scheduling.Run_as_Team]
+Run_as_Team = ""
+
+[Scripts]
+
+[Scripts.Task_Scripts]
+
+Your_Script_Name = "\\scripts\your-script-name\your-script-name.toml"
+Your_Script_Name_2 = "\\scripts\your-script-name-2\your-script-name-2.toml"
+Your_Script_Name_3 = "\\scripts\your-script-name-3\your-script-name-3.toml"

@@ -1,0 +1,20 @@
+[Details]
+Display_Name = ""
+Description = ""
+
+[Variable_Details]
+Type = "Text / Number / Boolean / Date"
+Default_Value = ""
+Global_Value = ""
+Make_the_value_Read-Only = false / true
+
+[Contexts]
+Global = false / true
+Organization = false / true
+Site = false / true
+Agent_Group = false / true
+System = false / true
+
+[Expiration]
+Expires = false / true
+Reset_value_after = ""

@@ -1,0 +1,67 @@
+[Scripts]
+Path = "Automation > Scripts > User Defined > ProVal"
+
+[Details]
+Name = ""
+Description = ""
+
+[Inputs]
+
+[Inputs.Add_Variable]
+Name = ""
+Use_custom_field_value = false / true
+Custom_Field = "" # Use custom-fields\_template.toml
+Variable_Type = "Text / Number / Boolean / Date"
+Default_Value = ""
+
+[Inputs.Add_Variable]
+Name = ""
+Use_custom_field_value = false / true
+Custom_Field = "" # Use custom-fields\_template.toml
+Variable_Type = "Text / Number / Boolean / Date"
+Default_Value = ""
+
+[Inputs.Add_Variable]
+Name = ""
+Use_custom_field_value = false / true
+Custom_Field = "" # Use custom-fields\_template.toml
+Variable_Type = "Text / Number / Boolean / Date"
+Default_Value = ""
+
+[Outputs]
+
+[Outputs.Add_Variable]
+Name = ""
+Variable_Type = "Text / Number / Boolean / Date"
+Default_Value = ""
+Use_custom_field_value = false / true
+Custom_Field = "" # Use custom-fields\_template.toml
+
+[Outputs.Add_Variable]
+Name = ""
+Variable_Type = "Text / Number / Boolean / Date"
+Default_Value = ""
+Use_custom_field_value = false / true
+Custom_Field = "" # Use custom-fields\_template.toml
+
+[Outputs.Add_Variable]
+Name = ""
+Variable_Type = "Text / Number / Boolean / Date"
+Default_Value = ""
+Use_custom_field_value = false / true
+Custom_Field = "" # Use custom-fields\_template.toml
+
+[Windows]
+Enable = false / true
+Script_type = "Batch / PowerShell / VBScript"
+Script = "_template.ps1" # Use _template.ps1 / Use _template.cmd / Use _template.vbs
+
+[Linux]
+Enable = false / true
+Script_type = "Bash"
+Script = "_template.sh" # Use _template.sh
+
+[macOs]
+Enable = false / true
+Script_type = "Bash"
+Script = "_template.sh" # Use _template.sh

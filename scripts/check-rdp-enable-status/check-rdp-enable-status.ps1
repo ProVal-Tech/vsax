@@ -71,6 +71,5 @@ if ($fDenyTSConnections -eq 0) {
 # Log the result for RMM
 Write-Output "Extended Audit: System: cPVAL RDP Enable Status: $OutputRDPStatus"
 
-# Set the variable for use in RMM (Kaseya VSA style)
 # As noted before, for NinjaRMM, the Write-Output line is generally sufficient.
 Start-Process -FilePath "$env:VSX_HOME\CLI.exe" -ArgumentList ("setVariable OutputRDPStatus `"$OutputRDPStatus`"") -Wait

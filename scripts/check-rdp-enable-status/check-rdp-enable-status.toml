@@ -1,0 +1,21 @@
+[Scripts]
+Path = "Automation > Scripts > User Defined > ProVal"
+
+[Details]
+Name = "Check RDP Enable Status"
+Description = "This script is used to check the status of the RDP enable on the machine and update the same result in CF(cPVAL RDP Enable Status )."
+
+[Outputs]
+
+[Outputs.Add_Variable]
+Name = "OutputRDPEnableStatus"
+Variable_Type = "Text"
+Default_Value = "Nul"
+Use_custom_field_value = true
+Custom_Field = "cPVAL RDP Enable Status" # Use custom-fields\cpval-rdp-enable-status.toml
+Context = "System"
+
+[Windows]
+Enable = true
+Script_type = "PowerShell"
+Script = "check-rdp-enable-status.ps1" # Use check-rdp-enable-status.ps1

@@ -1,0 +1,19 @@
+[Details]
+Display_Name = "cPVAL RDP Enable Status"
+Description = "This CF is used to gather the output of the RDP Enable status"
+
+[Variable_Details]
+Type = "Text"
+Default_Value = "Nul"
+Global_Value = ""
+Make_the_value_Read-Only = false
+
+[Contexts]
+Global = false
+Organization = false 
+Site = false 
+Agent_Group = false
+System = true
+
+[Expiration]
+Expires = false

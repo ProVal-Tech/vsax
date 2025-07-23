@@ -3,15 +3,15 @@ Required variable inputs:
 None
 
 Required variable outputs:
-Name: "OutputRDPEnableStatus"
-Default Value: "Not Checked"
-Associated Custom Field: "Audit: System: cPVAL RDP Enable Status"
+Name: 'OutputRDPEnableStatus'
+Default Value: 'Not Checked'
+Associated Custom Field: 'Audit: System: cPVAL RDP Enable Status'
 
 Note: This script is designed for auditing purposes within an RMM environment.
 #>
 
 # Initialize the output variable
-$OutputRDPStatus = 'RDP Disabled' # Default to disabled unless found enabled
+$OutputRDPEnableStatus = 'Disabled' # Default to disabled unless found enabled
 
 Write-Output 'Checking Remote Desktop Protocol (RDP) status...'
 
@@ -29,11 +29,11 @@ try {
 catch {
     Write-Warning "Could not read RDP registry setting ($rdpRegPath\fDenyTSConnections). Error: $($_.Exception.Message)"
     # If the key isn't found, it might default to disabled or an unknown state.
-    # We'll treat this as "Disabled" or "Unknown" for safety.
+    # We'll treat this as 'Disabled' or 'Unknown' for safety.
 }
 
-# 2. Check "Remote Desktop Services" Service Status
-$serviceName = 'TermService' # This is the service name for "Remote Desktop Services"
+# 2. Check 'Remote Desktop Services' Service Status
+$serviceName = 'TermService' # This is the service name for 'Remote Desktop Services'
 $serviceStatus = $null
 
 try {
@@ -51,25 +51,24 @@ catch {
 if ($fDenyTSConnections -eq 0) {
     # RDP is enabled via registry
     if ($serviceStatus -eq 'Running') {
-        $OutputRDPStatus = 'RDP Enabled | Service Running'
+        $OutputRDPEnableStatus = 'Enabled'
     } elseif ($serviceStatus -eq 'Stopped') {
-        $OutputRDPStatus = 'RDP Enabled | Service Stopped'
+        $OutputRDPEnableStatus = 'Enabled'
     } else { # e.g., 'Not Found', 'Paused', etc.
-        $OutputRDPStatus = "RDP Enabled | Service $serviceStatus" # "RDP Enabled | Service Not Found" or "RDP Enabled | Service Paused"
+        $OutputRDPEnableStatus = "Enabled $serviceStatus" # 'RDP Enabled | Service Not Found' or 'RDP Enabled | Service Paused'
     }
 } elseif ($fDenyTSConnections -eq 1) {
     # RDP is disabled via registry
-    $OutputRDPStatus = 'RDP Disabled | Registry'
+    $OutputRDPEnableStatus = 'Disabled'
 } else {
     # Registry value not 0 or 1, or not found.
     # In practice, 'fDenyTSConnections' usually is 0 or 1.
     # If not found or another value, it's safer to consider it disabled or unknown.
-    $OutputRDPStatus = "RDP Status Unknown | Registry Value: $($fDenyTSConnections -join ',')"
+    $OutputRDPEnableStatus = "Unknown: $($fDenyTSConnections -join ',')"
 }
 
-
 # Log the result for RMM
-Write-Output "Extended Audit: System: cPVAL RDP Enable Status: $OutputRDPStatus"
+Write-Output "Extended Audit: System: cPVAL RDP Enable Status: $OutputRDPEnableStatus"
 
-# As noted before, for NinjaRMM, the Write-Output line is generally sufficient.
-Start-Process -FilePath "$env:VSX_HOME\CLI.exe" -ArgumentList ("setVariable OutputRDPStatus `"$OutputRDPStatus`"") -Wait
+# As noted before, for VSAx, the Write-Output line is generally sufficient.
+Start-Process -FilePath "$env:VSX_HOME\CLI.exe" -ArgumentList ("setVariable OutputRDPEnableStatus `"$OutputRDPEnableStatus`"") -Wait
